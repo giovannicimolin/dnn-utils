@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <ul>
+    <li>
+      <a href="{% url 'model_form_upload' %}">Upload de imagem</a>
+    </li>
+  </ul>
+
+  <p>Arquivos enviados:</p>
+  <ul>
+    {% for obj in images %}
+      <li>
+        <a href="{{ obj.document.url }}">{{ obj.document.name }}</a>
+         -
+        <a href="generate_tiles/{{obj.id}}"> Processar imagem</a>
+        <small>(Enviado em: {{ obj.uploaded_at }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p>Arquivos recortados:</p>
+  <ul>
+    {% for obj in tiled_images %}
+      <li>
+        {{ obj.description }}
+         -
+        <a href="map/{{obj.id}}"> Visualizar imagem</a>
+        <small>(Criado em: {{ obj.created_at }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
