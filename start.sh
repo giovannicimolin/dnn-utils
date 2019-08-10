@@ -18,5 +18,7 @@ python $TENSORFLOW_OBJECT_DETECTION_DIR/model_main.py \
     --num_train_steps=${NUM_TRAIN_STEPS} \
     --sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES \
     --alsologtostderr
-#
+
+
+# To run tensorboard, execute the following line on a different terminal
 # tensorboard --logdir=${MODEL_DIR}
